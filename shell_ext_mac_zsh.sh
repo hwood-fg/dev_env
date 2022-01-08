@@ -106,7 +106,39 @@ alias rms='rm -P'
 # alias rmsvn='find . -name ".svn" -exec rm -rf "{}" \;'
 alias rmds='find . -name ".DS_Store" -exec rm -rf "{}" \;'
 
-alias tbar='sudo killall TouchBarServer' # to get esc key back ;)
+###############################################################################
+# Prompt
+###############################################################################
+
+# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# [[ -r "/usr/local/opt/git/etc/bash_completion.d/git-prompt.sh" ]] && . "/usr/local/opt/git/etc/bash_completion.d/git-prompt.sh"
+# export DISABLE_UNTRACKED_FILES_DIRTY=false
+# export GIT_PS1_SHOWDIRTYSTATE=true
+# export GIT_PS1_SHOWCOLORHINTS=1
+# export PROMPT_COMMAND='__git_ps1 "\W" "\\\$ "'
+# export PROMPT_COMMAND='__git_ps1 "\w" "\[\e[0m\]\[\e[1;36m\] $ \[\e[0m\]"'
+
+# # Powerline Go:
+# # brew install golang
+# # go get -u github.com/justjanne/powerline-go
+# # PL_MODULES="time,host,ssh,cwd,git,jobs,perms,exit,root"
+# PL_MODULES="time,ssh,cwd,git,jobs,perms,exit,root"
+# function powerline_precmd() {
+#   PS1="$(powerline-go -modules ${PL_MODULES} -numeric-exit-codes -error $? -shell zsh)"
+# }
+# function install_powerline_precmd() {
+#   for s in "${precmd_functions[@]}"; do
+#     if [ "$s" = "powerline_precmd" ]; then
+#       return
+#     fi
+#   done
+#   precmd_functions+=(powerline_precmd)
+# }
+# if [ "$TERM" != "linux" ]; then
+#   install_powerline_precmd
+# fi
+
+alias tbar='sudo pkill TouchBarServer' # to get esc key back ;)
 
 ###############################################################################
 # AWS
