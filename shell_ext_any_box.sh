@@ -91,6 +91,52 @@ alias ezshe='$EDITOR ~/.dev_env'
 alias szsh='. ~/.zshrc'
 alias sbp='. ~/.zshrc'
 
+# ###############################################################################
+# # Prompt
+# ###############################################################################
+
+# if [ $OSTYPE = 'linux-gnu' ]; then
+#   export GIT_DUET_CO_AUTHORED_BY=1
+#   parse_git_branch() {
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+#   }
+
+#   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+#     host="\[\e[01;35m\]\u@\h\[\e[0m\]"
+#   else
+#     host="\[\e[01;30m\]\h\[\e[0m\]"
+#   fi
+
+#   if [ -n "$IN_NIX_SHELL" ]; then
+#     subshell="==NIX"
+#   else
+#     subshell=""
+#   fi
+
+#   export PS1="${host} \w\[\e[01;32m\]\$(parse_git_branch)\[\e[0m\]\n\[\e[1;36m\]${subshell}==> $ \[\e[0m\]"
+# fi
+
+# Codespaces zsh prompt theme, modified:
+__zsh_prompt() {
+  local prompt_username
+  if [ ! -z "${GITHUB_USER}" ]; then
+    prompt_username="@${GITHUB_USER}"
+  else
+    prompt_username="%n"
+  fi
+  PROMPT="%{$fg[green]%}${prompt_username} %(?:%{$reset_color%}➜ :%{$fg_bold[red]%}➜ )"                   # User/exit code arrow
+  PROMPT+='%{$fg_bold[blue]%}%(5~|%-1~/…/%3~|%4~)%{$reset_color%} '                                       # cwd
+  PROMPT+='$([ "$(git config --get codespaces-theme.hide-status 2>/dev/null)" != 1 ] && git_prompt_info)' # Git status
+  PROMPT+=$'\n'
+  PROMPT+='%{$fg[white]%}$ %{$reset_color%}'
+  unset -f __zsh_prompt
+}
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[cyan]%}(%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[yellow]%}✗%{$fg_bold[cyan]%})"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[cyan]%})"
+__zsh_prompt
+
 ###############################################################################
 # Yarn
 ###############################################################################
