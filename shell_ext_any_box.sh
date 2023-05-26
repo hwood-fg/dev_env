@@ -10,30 +10,6 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# ###############################################################################
-# # Prompt
-# ###############################################################################
-
-if [ -n $IN_NIX_SHELL ]; then
-  parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
-  }
-
-  # if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  #   host="\[\e[01;35m\]\u@\h\[\e[0m\]"
-  # else
-  #   host="\[\e[01;30m\]\h\[\e[0m\]"
-  # fi
-
-  # if [ -n "$IN_NIX_SHELL" ]; then
-  #   subshell="==NIX"
-  # else
-  #   subshell=""
-  # fi
-
-  export PS1="\[\e[1;36m\]NIX \[\e[0m\]\w\[\e[01;32m\]\$(parse_git_branch)\[\e[0m\] $ \[\e[0m\]"
-fi
-
 ###############################################################################
 # Basics
 ###############################################################################
@@ -95,26 +71,26 @@ alias sbp='. ~/.zshrc'
 # # Prompt
 # ###############################################################################
 
-# if [ $OSTYPE = 'linux-gnu' ]; then
-#   export GIT_DUET_CO_AUTHORED_BY=1
-#   parse_git_branch() {
-#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
-#   }
+if [ -n $IN_NIX_SHELL ]; then
+  parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+  }
 
-#   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-#     host="\[\e[01;35m\]\u@\h\[\e[0m\]"
-#   else
-#     host="\[\e[01;30m\]\h\[\e[0m\]"
-#   fi
+  # if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  #   host="\[\e[01;35m\]\u@\h\[\e[0m\]"
+  # else
+  #   host="\[\e[01;30m\]\h\[\e[0m\]"
+  # fi
 
-#   if [ -n "$IN_NIX_SHELL" ]; then
-#     subshell="==NIX"
-#   else
-#     subshell=""
-#   fi
+  # if [ -n "$IN_NIX_SHELL" ]; then
+  #   subshell="==NIX"
+  # else
+  #   subshell=""
+  # fi
 
-#   export PS1="${host} \w\[\e[01;32m\]\$(parse_git_branch)\[\e[0m\]\n\[\e[1;36m\]${subshell}==> $ \[\e[0m\]"
-# fi
+  export PS1="\[\e[1;36m\]NIX \[\e[0m\]\w\[\e[01;32m\]\$(parse_git_branch)\[\e[0m\] $ \[\e[0m\]"
+fi
+
 
 # Codespaces zsh prompt theme, modified:
 __zsh_prompt() {
@@ -136,6 +112,27 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[yellow]%}✗%{$fg_bold[cyan]%})"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[cyan]%})"
 __zsh_prompt
+
+# if [ $OSTYPE = 'linux-gnu' ]; then
+#   export GIT_DUET_CO_AUTHORED_BY=1
+#   parse_git_branch() {
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+#   }
+
+#   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+#     host="\[\e[01;35m\]\u@\h\[\e[0m\]"
+#   else
+#     host="\[\e[01;30m\]\h\[\e[0m\]"
+#   fi
+
+#   if [ -n "$IN_NIX_SHELL" ]; then
+#     subshell="==NIX"
+#   else
+#     subshell=""
+#   fi
+
+#   export PS1="${host} \w\[\e[01;32m\]\$(parse_git_branch)\[\e[0m\]\n\[\e[1;36m\]${subshell}==> $ \[\e[0m\]"
+# fi
 
 ###############################################################################
 # Yarn
