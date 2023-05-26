@@ -44,9 +44,9 @@ function tree {
   find ${1:-.} -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 }
 
-if [ $OSTYPE = 'linux-gnu' ]; then
-  export EDITOR=$(which nano)
-fi
+# if [ $OSTYPE = 'linux-gnu' ]; then
+#   export EDITOR=$(which nano)
+# fi
 
 # GIT
 alias g=git
@@ -71,7 +71,7 @@ alias sbp='. ~/.zshrc'
 # # Prompt
 # ###############################################################################
 
-if [ -n $IN_NIX_SHELL ]; then
+if [[ -n $IN_NIX_SHELL ]]; then
   parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
   }
