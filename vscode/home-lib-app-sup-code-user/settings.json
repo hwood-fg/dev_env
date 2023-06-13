@@ -98,7 +98,7 @@
   "workbench.activityBar.visible": false,
   "tabnine.experimentalAutoImports": true,
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "editor.fontFamily": "MonoLisa, Fira Code, Hack, Inconsolata, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": false,
@@ -111,7 +111,7 @@
   // "terminal.integrated.lineHeight": 1,
   "terminal.integrated.localEchoStyle": "#c0c",
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "redhat.telemetry.enabled": false,
   "[javascript]": {
