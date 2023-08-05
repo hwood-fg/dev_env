@@ -152,7 +152,10 @@ alias ecs='ecs-cli'
 
 alias d='docker'
 alias dc='docker-compose'
-alias dnuke='docker container rm --force --volumes $(docker container ls --quiet --all) ; docker volume rm $( docker volume ls --quiet ) ; docker network rm $(docker network ls -q)'
+alias dnukec='docker container rm --force $(docker container ls --quiet --all)'
+alias dnukev='docker volume rm $( docker volume ls --quiet )'
+alias dnuken='docker network rm $(docker network ls --quiet)'
+alias dnuke='dnukc --volumes ; dnukev ; dnuken'
 
 ###############################################################################
 # Elixir / Erlang
