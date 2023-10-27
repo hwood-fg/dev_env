@@ -16,3 +16,5 @@ ln -sf "${script_dir}/.gitignore" .
 
 grep "shell_ext_any_box" .zshrc || echo ". ${script_dir}/shell_ext_any_box.sh" >> .zshrc
 grep "shell_ext_any_box" .bashrc || echo ". ${script_dir}/shell_ext_any_box.sh" >> .bashrc
+
+export FAST_BRAKEMAN_PRECOMMIT=true
