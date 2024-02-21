@@ -106,6 +106,10 @@ alias rms='rm -P'
 # alias rmsvn='find . -name ".svn" -exec rm -rf "{}" \;'
 alias rmds='find . -name ".DS_Store" -exec rm -rf "{}" \;'
 
+# ==> Upgrading 10 dependents of upgraded formulae:
+# Disable this behaviour by setting HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK.
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+
 ###############################################################################
 # Prompt
 ###############################################################################
@@ -213,7 +217,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # rbenv:
 
-eval "$(rbenv init -)"                #bash
+# eval "$(rbenv init -)"                #bash
 export PATH="$HOME/.rbenv/bin:$PATH"  #zsh
 eval "$(rbenv init - zsh)"            #zsh
 

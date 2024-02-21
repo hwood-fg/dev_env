@@ -36,5 +36,9 @@
   {
     "key": "ctrl+shift+alt+p",
     "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "workbench.view.explorer",
   }
 ]
