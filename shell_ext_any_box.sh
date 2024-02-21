@@ -211,11 +211,11 @@ alias sf='sp --require fuubar --format Fuubar'
 alias r='bin/rails'
 alias rs='biq && be foreman run "rails server"'
 
-alias rdr='br db:rebuild'
+alias rdr='r db:rebuild'
 alias rdm='be rake db:migrate'
-alias rtp='br db:test:prepare'
-alias rds='br db:seed'
+alias rtp='r db:test:prepare'
+alias rds='r db:seed'
 
-alias work='br jobs:work'
+alias work='r jobs:work'
 
 alias ss='spring stop'
